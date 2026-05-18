@@ -24,7 +24,14 @@ public class PriorityQueue3<E extends Priority> implements Queue<E>, Iterable<E>
             return false;
         }
         int child = size;
-        // FIXME:
+        int parent = (child - 1) / 2;
+        while (child > 0 && array[parent].priority() < e.priority()) {
+            array[child] = array[parent];
+            child = parent;
+            parent = (child - 1) / 2;
+        }
+        array[child] = e;
+        size++;
         return true;
     }
 
