@@ -1,9 +1,9 @@
-package io.github.gamelmw.recursive;
+﻿package io.github.gamelmw.recursive;
 
 import java.util.Arrays;
 
 public class Fibonacci {
-    private static int fi(int n) {
+    public static int fi(int n) {
         int cache[] = new int[n + 1];
         Arrays.fill(cache, -1);
         cache[0] = 0;
@@ -12,14 +12,12 @@ public class Fibonacci {
     }
 
     private static int f(int n, int[] cache) {
-        if (n == 1) {
-            return 1;
-        } else if (n == 0) {
-            return 0;
+        if (cache[n] != -1) {
+            return cache[n];
         }
         int x = f(n - 1, cache);
         int y = f(n - 2, cache);
-        cache[n] = x + y;//记忆法，存入数组
+        cache[n] = x + y;
         return cache[n];
     }
 }
