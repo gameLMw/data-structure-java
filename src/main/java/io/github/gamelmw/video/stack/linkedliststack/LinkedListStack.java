@@ -5,7 +5,7 @@ import io.github.gamelmw.video.stack.Stack;
 import java.util.Iterator;
 
 /*
- * 链表实现栈
+ * 链表实现�?
  * */
 
 public class LinkedListStack<E> implements Stack<E>, Iterable<E> {
@@ -20,12 +20,12 @@ public class LinkedListStack<E> implements Stack<E>, Iterable<E> {
         }
     }
 
-    private int compacity;
+    private int capacity;
     private int size;
     private Node<E> head = new Node<>(null, null);
 
-    public LinkedListStack(int compacity) {
-        this.compacity = compacity;
+    public LinkedListStack(int capacity) {
+        this.capacity = capacity;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class LinkedListStack<E> implements Stack<E>, Iterable<E> {
 
     @Override
     public boolean isFull() {
-        return size == compacity;
+        return size == capacity;
     }
 
     @Override
