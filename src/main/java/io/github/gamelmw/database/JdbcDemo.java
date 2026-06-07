@@ -9,7 +9,7 @@ public class JdbcDemo {
         Properties properties = new Properties();
         try (InputStream inputStream = JdbcDemo.class.getClassLoader().getResourceAsStream("database.properties")) {
             if (inputStream == null) {
-                throw new IllegalStateException("找不到配置文�?database.properties");
+                throw new IllegalStateException("找不到配置文?database.properties");
             }
             properties.load(inputStream);
         }
@@ -35,6 +35,7 @@ public class JdbcDemo {
         query();
     }
 
+    // 查询所有部门
     private static void query() throws Exception {
 
         String sql = "select d_id, d_name from department";
@@ -54,11 +55,12 @@ public class JdbcDemo {
 //             ResultSet resultSet = statement.executeQuery("select now()")) {
 //
 //            if (resultSet.next()) {
-//                System.out.println("当前数据库时�? " + resultSet.getString(1));
+//                System.out.println("当前数据库时? " + resultSet.getString(1));
 //            }
 //        }
     }
 
+    // 插入部门
     private static void insertDepartment(int id, String name) throws Exception {
         String sql = "insert into department (d_id, d_name) values (?, ?)";
 
@@ -68,10 +70,11 @@ public class JdbcDemo {
             statement.setString(2, name);
 
             int rows = statement.executeUpdate();
-            System.out.println("插入记录�? " + rows);
+            System.out.println("插入记录? " + rows);
         }
     }
 
+    // 删除部门
     private static void deleteDepartment(int id) throws Exception {
         String sql = "DELETE FROM department WHERE d_id = ?";
 
@@ -80,7 +83,7 @@ public class JdbcDemo {
             statement.setInt(1, id);
 
             int rows = statement.executeUpdate();
-            System.out.println("删除记录�? " + rows);
+            System.out.println("删除记录? " + rows);
         }
     }
 }
