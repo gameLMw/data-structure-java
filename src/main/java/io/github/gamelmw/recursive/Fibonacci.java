@@ -1,4 +1,4 @@
-﻿package io.github.gamelmw.recursive;
+package io.github.gamelmw.recursive;
 
 import java.util.Arrays;
 

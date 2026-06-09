@@ -1,4 +1,4 @@
-﻿package io.github.gamelmw.leetcode._206;
+package io.github.gamelmw.leetcode._206;
 
 import io.github.gamelmw.leetcode.ListNode;
 

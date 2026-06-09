@@ -1,4 +1,4 @@
-﻿package io.github.gamelmw.video.linkedlist.singlylinkedlist;
+package io.github.gamelmw.video.linkedlist.singlylinkedlist;
 
 import java.util.Iterator;
 import java.util.function.Consumer;

@@ -1,4 +1,4 @@
-﻿package io.github.gamelmw.database;
+package io.github.gamelmw.database;
 
 import java.io.InputStream;
 import java.sql.*;

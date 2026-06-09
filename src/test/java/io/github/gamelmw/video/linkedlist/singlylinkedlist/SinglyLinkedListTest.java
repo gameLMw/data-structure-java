@@ -35,20 +35,19 @@ public class SinglyLinkedListTest {
         s.addLast(3);
         s.addLast(4);
 
-        Assertions.assertIterableEquals(List.of(1,2,3,4),s);
+        Assertions.assertIterableEquals(List.of(1, 2, 3, 4), s);
 
         int v = s.get(-1);
         System.out.println(v);
 
-        s.insert(0,5);
+        s.insert(0, 5);
         System.out.println("---------------");
-        for (Integer value : s){
+        for (Integer value : s) {
             System.out.println(value);
         }
 
-        s.removeFist();
         System.out.println("---------------");
-        for (Integer value : s){
+        for (Integer value : s) {
             System.out.println(value);
         }
     }
