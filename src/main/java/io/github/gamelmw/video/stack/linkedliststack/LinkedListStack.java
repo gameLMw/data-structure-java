@@ -5,7 +5,7 @@ import io.github.gamelmw.video.stack.Stack;
 import java.util.Iterator;
 
 /*
- * 链表实现�?
+ * 链表实现?
  * */
 
 public class LinkedListStack<E> implements Stack<E>, Iterable<E> {
