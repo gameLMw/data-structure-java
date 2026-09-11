@@ -4,6 +4,10 @@ package io.github.gamelmw.video.tree.binarysearchtree;
  * 二叉搜索树，其中每个节点的左子树所有节点值都小于该节点值，右子树所有节点值都大于该节点值。
  * */
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class BSTTree1 {
 
     BSTNode root;// 根节点
@@ -90,7 +94,7 @@ public class BSTTree1 {
         return doMin(root);
     }
 
-    public Object doMin(BSTNode node) {
+    private Object doMin(BSTNode node) {
         if (node == null) {
             return null;
         }
@@ -117,7 +121,7 @@ public class BSTTree1 {
         return doMax(root);
     }
 
-    public Object doMax(BSTNode node) {
+    private Object doMax(BSTNode node) {
         if (node == null) {
             return null;
         }
@@ -305,7 +309,7 @@ public class BSTTree1 {
     //parent : 被删除节点的父节点
     //deleted : 被删除节点
     //child : 被顶上去的节点
-    public void shift(BSTNode parent, BSTNode deleted, BSTNode child) {
+    private void shift(BSTNode parent, BSTNode deleted, BSTNode child) {
         if (parent == null) {
             root = child;
         } else if (deleted == parent.left) {
@@ -315,21 +319,55 @@ public class BSTTree1 {
         }
     }
 
+    // 递归删除
+    // node : 递归删除的起点
+    // key : 要删除的节点的key
+    // return : 删剩下的孩子
+    // TODO:递归删除
+    private BSTNode doDelete(BSTNode node, int key) {
+        return null;
+    }
+
     //中序遍历
-    public void inOrder(BSTNode node) {
+    public void inOrder() {
         StringBuilder sb = new StringBuilder();
-        doInOrder(node, sb);
+        doInOrder(root, sb);
         System.out.println(sb);
     }
 
     private void doInOrder(BSTNode node, StringBuilder sb) {
         if (node != null) {
             doInOrder(node.left, sb);
-            if (sb.length() > 0) {
+            if (!sb.isEmpty()) {
                 sb.append(", ");
             }
             sb.append(node.key).append(" ").append(node.value);
             doInOrder(node.right, sb);
         }
     }
+
+    /*
+     * 范围查找
+     * */
+
+    // 找 < key 的所有 value
+    public List<Object> less(int key) {
+        ArrayList<Object> result = new ArrayList<>();
+        BSTNode p = root;
+        LinkedList<BSTNode> stack = new LinkedList<>();
+        while (p != null || !stack.isEmpty()) {
+            while (p != null) {
+                stack.push(p);
+                p = p.left;
+            }
+            p = stack.pop();
+            if (p.key < key) {
+                result.add(p.value);
+            }
+            p = p.right;
+        }
+        return result;
+    }
+
+    //TODO :范围查找
 }
