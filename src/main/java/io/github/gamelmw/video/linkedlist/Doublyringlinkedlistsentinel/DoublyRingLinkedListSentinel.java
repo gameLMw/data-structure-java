@@ -2,7 +2,14 @@ package io.github.gamelmw.video.linkedlist.Doublyringlinkedlistsentinel;
 
 import java.util.Iterator;
 
-public class DoublyRingLinkedListSentinel implements Iterable<Integer>{
+/*
+ * 双向循环链表(带哨兵)
+ *
+ * 双向的优点：可以从前向后遍历，也可以从后向前遍历
+ * 带哨兵的优点：可以简化边界条件的判断
+ * */
+
+public class DoublyRingLinkedListSentinel implements Iterable<Integer> {
     private static class Node {
         Node prev;
         int value;
@@ -15,7 +22,7 @@ public class DoublyRingLinkedListSentinel implements Iterable<Integer>{
         }
     }
 
-    private Node sentinel = new Node(null, -1, null);
+    private final Node sentinel = new Node(null, -1, null);
 
     public DoublyRingLinkedListSentinel() {
         sentinel.next = sentinel;
@@ -92,15 +99,17 @@ public class DoublyRingLinkedListSentinel implements Iterable<Integer>{
 
     @Override
     public Iterator<Integer> iterator() {
-        return new Iterator<Integer>() {
+        return new Iterator<>() {
             Node p = sentinel.next;
+
             @Override
             public boolean hasNext() {
                 return p != sentinel;
             }
+
             @Override
             public Integer next() {
-                int  value = p.value;
+                int value = p.value;
                 p = p.next;
                 return value;
             }
