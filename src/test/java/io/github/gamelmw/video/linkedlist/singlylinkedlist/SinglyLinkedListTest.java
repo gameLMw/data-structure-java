@@ -14,11 +14,11 @@ public class SinglyLinkedListTest {
         s.addFirst(3);
         s.addFirst(4);
 
-        s.loop1(value -> System.out.println(value));
+        s.loop1(System.out::println);
 
         System.out.println("---------------");
 
-        s.loop2(value -> System.out.println(value));
+        s.loop2(System.out::println);
 
         System.out.println("---------------");
 
@@ -60,6 +60,10 @@ public class SinglyLinkedListTest {
         s.addLast(3);
         s.addLast(4);
 
+        System.out.println(s.get(1));
+
         s.loop3();
+
+        s.removeFirst();
     }
 }
