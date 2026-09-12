@@ -2,6 +2,12 @@ package io.github.gamelmw.video.linkedlist.Doublylinkedlistsentinel;
 
 import java.util.Iterator;
 
+/*
+ *  双链表（带哨兵）
+ *
+ *
+ * */
+
 public class DoublyLinkedListSentinel implements Iterable<Integer> {
     static class Node {
         Node prev;//前一个节点指针
@@ -15,8 +21,8 @@ public class DoublyLinkedListSentinel implements Iterable<Integer> {
         }
     }
 
-    private Node head;//头哨兵
-    private Node tail;//尾哨兵
+    private final Node head;//头哨兵
+    private final Node tail;//尾哨兵
 
     public DoublyLinkedListSentinel() {
         head = new Node(null, 666, null);
@@ -44,7 +50,7 @@ public class DoublyLinkedListSentinel implements Iterable<Integer> {
     }
 
     //删除头元素
-    public void removeFist() {
+    public void removeFirst() {
         remove(0);
     }
 
@@ -99,15 +105,16 @@ public class DoublyLinkedListSentinel implements Iterable<Integer> {
         next.prev = prev;
     }
 
+    //非法索引
     private IndexOutOfBoundsException illegalIndex(int index) {
         return new IndexOutOfBoundsException(
                 String.format("index [%d] 不合法%n", index)
         );
     }
-
+    
     @Override
     public Iterator<Integer> iterator() {
-        return new Iterator<Integer>() {
+        return new Iterator<>() {
             Node p = head.next;
 
             @Override
